@@ -16,9 +16,13 @@ function updateLeaderboard(data) {
     const podiumData = sortedData.slice(0, 3);
     const podiumStands = document.querySelectorAll('.podium-stand');
     
-    podiumStands.forEach((stand, index) => {
-        if (podiumData[index]) {
-            const user = podiumData[index];
+    // Map array indices to podium positions (2nd, 1st, 3rd)
+    const podiumOrder = [1, 0, 2]; // Maps visual positions to data indices
+    
+    podiumStands.forEach((stand, visualIndex) => {
+        const dataIndex = podiumOrder[visualIndex];
+        if (podiumData[dataIndex]) {
+            const user = podiumData[dataIndex];
             const nameEl = stand.querySelector('.podium-name');
             const wageredEl = stand.querySelector('.podium-wagered span');
             
