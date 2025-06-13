@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard - CHROMEGAMBLES</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/leaderboard.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="images/logo.webp" alt="CHROMEGAMBLES Logo">
+                <h1>CHROMEGAMBLES</h1>
+            </div>
+            <div class="hamburger">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="leaderboard.html" class="active">Leaderboard</a></li>
+                <li><a href="livestream.html">Live Stream</a></li>
+                <li>
+                    <a href="https://discord.com/invite/dwRSfF2w" rel="noopener noreferrer" target="_blank" class="discord-btn">
+                        <i class="fab fa-discord"></i> Join Community
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="leaderboard-header">
+            <div class="container">
+                <h1>LEADERBOARD</h1>
+                <p>Compete with the best and climb to the top of the leaderboard</p>
+            </div>
+        </section>
+
+        <section class="leaderboard-container">
+            <div class="container">
+                <div class="leaderboard-info">
+                    <h2 class="leaderboard-title">$500 Monthly Diceblox Leaderboard</h2>
+                    <div class="countdown-timer" id="diceblox-countdown">
+                        <span>Ends in: </span>
+                        <span id="diceblox-days">00</span>d 
+                        <span id="diceblox-hours">00</span>h 
+                        <span id="diceblox-minutes">00</span>m 
+                        <span id="diceblox-seconds">00</span>s
+                    </div>
+                </div>
+
+                <div class="leaderboard-podium">
+                    <!-- Podium for Rank 1, 2, 3 -->
+                    <div class="podium-stand">
+                        <div class="podium-place podium-2nd">
+                            <div class="podium-rank">2nd</div>
+                            <div class="podium-avatar">🥈</div>
+                            <div class="podium-details">
+                                <div class="podium-name">-</div>
+                                <div class="podium-wagered">Wagered: <span>-</span></div>
+                                <div class="podium-prize">Prize: <span>$125</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="podium-stand">
+                        <div class="podium-place podium-1st">
+                            <div class="podium-rank">1st</div>
+                            <div class="podium-avatar">🏆</div>
+                            <div class="podium-details">
+                                <div class="podium-name">-</div>
+                                <div class="podium-wagered">Wagered: <span>-</span></div>
+                                <div class="podium-prize">Prize: <span>$250</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="podium-stand">
+                        <div class="podium-place podium-3rd">
+                            <div class="podium-rank">3rd</div>
+                            <div class="podium-avatar">🥉</div>
+                            <div class="podium-details">
+                                <div class="podium-name">-</div>
+                                <div class="podium-wagered">Wagered: <span>-</span></div>
+                                <div class="podium-prize">Prize: <span>$75</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="leaderboard-table">
+                    <div class="table-header">
+                        <div>RANK</div>
+                        <div>USERNAME</div>
+                        <div class="text-right">WAGERED</div>
+                        <div class="text-right">PRIZE</div>
+                    </div>
+                    <div class="table-body" id="diceblox-table-body">
+                        <!-- Rows for Rank 4-10 will be inserted here by JavaScript -->
+                        <div class="table-row">
+                            <div class="rank">4</div>
+                            <div class="username">-</div>
+                            <div class="wagered">0</div>
+                            <div class="prize">$50</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="rank">5</div>
+                            <div class="username">-</div>
+                            <div class="wagered">0</div>
+                            <div class="prize">$50</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="rank">6</div>
+                            <div class="username">-</div>
+                            <div class="wagered">0</div>
+                            <div class="prize">-</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="rank">7</div>
+                            <div class="username">-</div>
+                            <div class="wagered">0</div>
+                            <div class="prize">-</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="rank">8</div>
+                            <div class="username">-</div>
+                            <div class="wagered">0</div>
+                            <div class="prize">-</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="rank">9</div>
+                            <div class="username">-</div>
+                            <div class="wagered">0</div>
+                            <div class="prize">-</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="rank">10</div>
+                            <div class="username">-</div>
+                            <div class="wagered">0</div>
+                            <div class="prize">-</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <!-- Kiri: Logo dan Sosial Media -->
+            <div class="footer-brand">
+                <a href="index.html" class="footer-logo">
+                    <img src="images/logo.webp" alt="CHROMEGAMBLES" class="footer-logo-img">
+                    <h2>CHROMEGAMBLES</h2>
+                </a>
+                <div class="social-links">
+                    <a href="https://discord.gg/chromegambles" target="_blank" rel="noopener noreferrer" class="social-icon discord" aria-label="Join our Discord">
+                        <i class="fab fa-discord"></i>
+                    </a>
+                    <a href="https://kick.com/chromegambles" target="_blank" rel="noopener noreferrer" class="social-icon kick" aria-label="Follow us on Kick">
+                        <i class="fab fa-kickstarter"></i>
+                    </a>
+                </div>
+                <p class="copyright">
+                    The most rewarding community for gambling enthusiasts. 
+                    Join us for exclusive bonuses and giveaways!
+                </p>
+            </div>
+
+            <!-- Tengah: Navigasi -->
+            <div class="footer-section nav-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-menu">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="leaderboard.html"><i class="fas fa-trophy"></i> Leaderboard</a></li>
+                    <li><a href="livestream.html"><i class="fas fa-video"></i> Live Stream</a></li>
+                    <li><a href="index.html#offers"><i class="fas fa-gift"></i> Exclusive Offers</a></li>
+                </ul>
+            </div>
+
+            <!-- Kanan: Legal & Info -->
+            <div class="footer-section info-section">
+                <div class="legal-links">
+                    <a href="#" class="legal-link">
+                        <i class="far fa-question-circle"></i> FAQ
+                    </a>
+                    <span class="divider">•</span>
+                    <a href="#" class="legal-link">
+                        <i class="fas fa-file-contract"></i> Terms of Service
+                    </a>
+                </div>
+                
+                <div class="age-warning">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <div>
+                        <strong>18+ Only</strong>
+                        <p>Gamble Responsibly. Know your limits.</p>
+                    </div>
+                </div>
+
+                <div class="credits">
+                    <p>Designed with <i class="fas fa-heart" style="color: #ff6b6b;"></i> by 
+                    <a href="https://twitter.com/Llakadmatatag" target="_blank" rel="noopener noreferrer">@Llakadmatatag</a></p>
+                    <p class="copyright-mobile">&copy; 2025 CHROMEGAMBLES. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/leaderboard.js"></script>
+</body>
+</html>
