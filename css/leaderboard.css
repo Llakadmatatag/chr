@@ -133,9 +133,9 @@
     flex-direction: column;
     align-items: center;
     flex: 1 1 0;
-    min-width: 0;
-    max-width: 200px;
-    padding: 0 5px;
+    min-width: 250px;
+    max-width: 280px;
+    padding: 0 10px;
     box-sizing: border-box;
     transition: transform 0.3s ease;
 }
@@ -151,13 +151,14 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding: 0.5rem 0.5rem 1rem;
+    padding: 1rem;
     position: relative;
     transition: all 0.3s ease;
     box-sizing: border-box;
     overflow: hidden;
     word-wrap: break-word;
     height: 100%;
+    text-align: center;
 }
 
 .podium-1st {
@@ -592,5 +593,65 @@
     
     .wagered, .prize {
         font-size: 0.75rem;
+    }
+}
+
+/* Additional styles for podium text and numbers visibility */
+.podium-details {
+    width: 100%;
+    padding: 0.5rem;
+}
+
+.podium-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+}
+
+.podium-wagered {
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+    word-break: break-word;
+}
+
+.podium-wagered span {
+    display: block;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-top: 0.2rem;
+}
+
+.podium-prize {
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.podium-prize span {
+    font-weight: 600;
+    color: #ffd700;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .podium-stand {
+        min-width: 200px;
+        padding: 0 5px;
+    }
+    
+    .podium-name {
+        font-size: 1rem;
+    }
+    
+    .podium-wagered,
+    .podium-prize {
+        font-size: 0.8rem;
+    }
+    
+    .podium-wagered span {
+        font-size: 0.9rem;
     }
 }
