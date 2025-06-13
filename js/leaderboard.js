@@ -1,6 +1,5 @@
-// Google Sheets API configuration
+// Google Sheets configuration
 const SHEET_ID = '17VT1YOy2Q37rZO9toc4K_8ZhKFX0P6nhPg3N86xd67k';
-const API_KEY = 'AIzaSyB3uJ6l4w3XQ8QvXQ3XQ3XQ3XQ3XQ3XQ3XQ';
 const SHEET_NAME = 'DICEBLOX';
 
 // Format number with commas
@@ -67,33 +66,35 @@ function updateLeaderboard(data) {
 async function fetchLeaderboardData() {
     try {
         const response = await fetch(
-            `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${SHEET_NAME}?key=${API_KEY}`
+            `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${SHEET_NAME}`
         );
         
         if (!response.ok) {
             throw new Error('Failed to fetch data from Google Sheets');
         }
         
-        const data = await response.json();
-        const rows = data.values;
-        const headers = rows[0].map(h => h.toLowerCase());
+        const textData = await response.text();
+        // Google's response comes with some garbage at the start, need to clean it
+        const jsonData = JSON.parse(textData.substring(47).slice(0, -2));
+        
+        // Extract the column headers
+        const headers = jsonData.table.cols.map(col => col.label.toLowerCase());
         
         // Convert rows to objects with header keys
         const result = [];
-        for (let i = 1; i < rows.length; i++) {
-            const row = rows[i];
+        jsonData.table.rows.forEach(row => {
             const obj = {};
             headers.forEach((header, index) => {
-                obj[header] = row[index];
+                obj[header] = row.c[index] ? row.c[index].v : null;
             });
             // Convert wagered to number
             if (obj.wagered) {
-                obj.wagered = parseFloat(obj.wagered.replace(/[^0-9.]/g, '')) || 0;
+                obj.wagered = typeof obj.wagered === 'number' ? obj.wagered : parseFloat(obj.wagered.toString().replace(/[^0-9.]/g, '')) || 0;
             } else {
                 obj.wagered = 0;
             }
             result.push(obj);
-        }
+        });
         
         return result;
     } catch (error) {
